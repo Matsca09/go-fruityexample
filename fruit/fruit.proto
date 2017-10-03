@@ -1,0 +1,26 @@
+syntax = "proto3";
+package fruit;
+
+message AvailableFruits {
+	int32 apple = 1;
+	int32 banana = 2;
+	int32 orange = 3;
+}
+
+message Integer {
+	int32 value = 1;
+}
+
+message Empty {
+	
+}
+
+service Fruit {
+	rpc AddApples(Integer) returns (Empty) {}
+	rpc AddBananas(Integer) returns (Empty) {}
+	rpc AddOranges(Integer) returns (Empty) {}
+	rpc GetAllFruits(Empty) returns (AvailableFruits) {}
+	rpc GetLiveFruits(Empty) returns (stream AvailableFruits) {}
+}
+
+
